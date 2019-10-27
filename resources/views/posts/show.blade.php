@@ -1,6 +1,12 @@
-@if (session('message'))
-       {{ session('message') }}
-   @endif
+@extends('layouts.layouts')
 
-   {{ $post->title }}
-   {{ $post->content }} 
+@section('title', 'lacrud')
+
+@section('content')
+    @if (session('message'))
+        {{ session('message') }}
+    @endif
+
+    {{ $post->title }}
+    {{ $post->content }}
+@endsection 
