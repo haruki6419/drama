@@ -3,7 +3,7 @@
 @section('title', 'lacrud')
 
 @section('content')
-<h1>Posts</h1>
+<h1>ドラマ感想</h1>
 
 @foreach($posts as $post)
 
