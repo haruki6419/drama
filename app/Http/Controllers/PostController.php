@@ -74,7 +74,11 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+      $post->title = $request->input('title');
+      $post->content = $request->input('content');
+      $post->save();
+
+      return redirect()->route('posts.show', ['id' => $post->id])->with('message', 'Post was successfully updated.');
     }
 
     /**
