@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDramasTable extends Migration
+class AddColumToDramasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateDramasTable extends Migration
      */
     public function up()
     {
-        Schema::create('dramas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            
-            $table->timestamps();
+        Schema::table('dramas', function (Blueprint $table) {
+            $table->string('title');
+            $table->text('content');
         });
     }
 
@@ -27,6 +26,8 @@ class CreateDramasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dramas');
+        Schema::table('dramas', function (Blueprint $table) {
+            //
+        });
     }
 }

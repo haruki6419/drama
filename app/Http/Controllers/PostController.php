@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Drama;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -26,7 +27,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $dramas = Drama::all();
+        return view('posts.create', compact('dramas'));
     }
 
     /**
@@ -40,7 +42,10 @@ class PostController extends Controller
       $post = new Post();
       $post->title = $request->input('title');
       $post->content = $request->input('content');
+      $post->score = $request->input('score');
+      $post->drama_id = $request->input('drama');
       $post->save();
+      return redirect()->route('posts.show',[$post]);
     }
 
     /**
@@ -51,7 +56,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        $drama = Drama::find($post->drama_id);
+        return view('posts.show', compact('post', 'drama'));
     }
 
     /**

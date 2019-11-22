@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDramasTable extends Migration
+class AddDramaToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateDramasTable extends Migration
      */
     public function up()
     {
-        Schema::create('dramas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->integer('drama_id');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateDramasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dramas');
+        Schema::table('posts', function (Blueprint $table) {
+            //
+        });
     }
 }

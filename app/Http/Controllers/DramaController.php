@@ -14,7 +14,9 @@ class DramaController extends Controller
      */
     public function index()
     {
-        //
+      $dramas = Drama::all();
+
+      return view('dramas.index', compact('dramas'));
     }
 
     /**
@@ -24,7 +26,7 @@ class DramaController extends Controller
      */
     public function create()
     {
-        //
+        return view('dramas.create');
     }
 
     /**
@@ -35,7 +37,12 @@ class DramaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $drama = new Drama();
+      $drama->title = $request->input('title');
+      $drama->content = $request->input('content');
+      $drama->save();
+
+      return redirect()->route('dramas.show',[$drama]);
     }
 
     /**
@@ -46,7 +53,7 @@ class DramaController extends Controller
      */
     public function show(Drama $drama)
     {
-        //
+        return view('dramas.show', compact('drama'));
     }
 
     /**
@@ -57,7 +64,7 @@ class DramaController extends Controller
      */
     public function edit(Drama $drama)
     {
-        //
+        return view('dramas.edit', compact('drama'));
     }
 
     /**
@@ -69,7 +76,11 @@ class DramaController extends Controller
      */
     public function update(Request $request, Drama $drama)
     {
-        //
+      $drama->title = $request->input('title');
+      $drama->content = $request->input('content');
+      $drama->save();
+
+      return redirect()->route('dramas.show', ['id' => $drama->id])->with('message', 'Drama was successfully updated.');
     }
 
     /**
@@ -80,6 +91,8 @@ class DramaController extends Controller
      */
     public function destroy(Drama $drama)
     {
-        //
+      $drama->delete();
+
+      return redirect()->route('dramas.index');
     }
 }
