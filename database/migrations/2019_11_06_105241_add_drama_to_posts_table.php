@@ -14,7 +14,7 @@ class AddDramaToPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('drama_id');
+            $table->integer('drama_id')->default(0)->unsigned();
         });
     }
 
