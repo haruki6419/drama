@@ -14,8 +14,8 @@ class AddColumToDramasTable extends Migration
     public function up()
     {
         Schema::table('dramas', function (Blueprint $table) {
-            $table->string('title');
-            $table->text('content');
+            $table->string('title')->default("");
+            $table->text('content')->default("");
         });
     }
 
