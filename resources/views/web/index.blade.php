@@ -14,11 +14,26 @@
   </div>
 </div>
 
-<ul>
-  <a href="../dramas"><li>1位のドラマ</li></a>
-  <a href="../dramas"><li>2位のドラマ</li></a>
-  <a href="../dramas"><li>3位のドラマ</li></a>
-</ul>
+<h2 class="text-center">新着ドラマ一覧</h2>
+
+<div class="row">
+  @foreach($recently_dramas as $drama)
+  <div class="col-4 mx-auto d-flex justify-content-center">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ $drama->title }}</h5>
+        <p class="card-text">{{ Str::limit($drama->content, 100) }}</p>
+        <a href="/dramas/{{ $drama->id }}" class="btn btn-primary">詳細を見る</a>
+      </div>
+    </div>
+  </div>
+  @endforeach
+</div>
+
+
+
+
+
 
 
 @endsection
