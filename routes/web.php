@@ -16,3 +16,7 @@ Route::get('/', 'WebController@index');
 Route::resource('posts', 'PostController');
 
 Route::resource('dramas','DramaController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
