@@ -8,11 +8,12 @@
         {{ session('message') }}
     @endif
 
-    <div class="card">
+    <div class="card mt-5">
         <div class="card-body">
             <h5 class="card-title">{{ $post->title }}</h5>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=ドラマ名：{{$drama->title}}%0a評価：{{ str_repeat('★',$post->score) }}%0a感想はこちら⇒⇒" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <h6>{{ $drama->title }}</h6>
-            <h6>{{ str_repeat("☆",$post->score) }}</h6>
+            <h6>{{ str_repeat("★",$post->score) }}</h6>
             <p class="card-text">{{ $post->content }}</p>
 
             <div class="d-flex" style="height: 36.4px;">
