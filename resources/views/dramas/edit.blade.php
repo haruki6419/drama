@@ -6,8 +6,9 @@
 
 <h1>ドラマ編集</h1>
 
-<form method="POST" action="/dramas" enctype="multipart/form-data">
+<form method="POST" action="/dramas/{{ $drama->id }}" enctype="multipart/form-data">
     {{ csrf_field() }}
+    @method('PUT')
     <div class="form-group">
         <label for="exampleInputEmail1">ドラマタイトル</label>
         <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ $drama->title }}">
