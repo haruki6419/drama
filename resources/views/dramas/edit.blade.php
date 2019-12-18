@@ -6,12 +6,17 @@
 
 <h1>ドラマ編集</h1>
 
-<form method="POST" action="/dramas">
+<form method="POST" action="/dramas" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="exampleInputEmail1">ドラマタイトル</label>
         <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ $drama->title }}">
     </div>
+
+    <div class="form-group">
+        <input type="file" name="img">
+    </div>
+
     <div class="form-group">
         <label for="exampleInputPassword1">感想内容</label>
         <textarea type="password" class="form-control" name="content">{{ $drama->content }}</textarea>

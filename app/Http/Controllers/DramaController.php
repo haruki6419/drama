@@ -40,7 +40,9 @@ class DramaController extends Controller
       $drama = new Drama();
       $drama->title = $request->input('title');
       $drama->content = $request->input('content');
+      $drama->img = $request->file('img')->store('public');
       $drama->save();
+
 
       return redirect()->route('dramas.show',[$drama]);
     }
@@ -78,6 +80,7 @@ class DramaController extends Controller
     {
       $drama->title = $request->input('title');
       $drama->content = $request->input('content');
+      $drama->img = $request->file('img')->store('public');
       $drama->save();
 
       return redirect()->route('dramas.show', ['id' => $drama->id])->with('message', 'Drama was successfully updated.');

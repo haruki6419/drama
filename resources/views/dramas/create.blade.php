@@ -6,7 +6,7 @@
 
 <h1>ドラマ新規作成</h1>
 
-<form method="POST" action="/dramas">
+<form method="POST" action="/dramas" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="exampleInputEmail1">ドラマタイトル</label>
@@ -14,10 +14,9 @@
     </div>
 
     <!-- 画像追加 -->
-    <!-- <div class="form-group">
-        <input type="file" name="photo">
-        <input type="submit">
-    </div> -->
+    <div class="form-group">
+        <input type="file" name="img">
+    </div>
 
 
 
