@@ -17,8 +17,8 @@
           その他
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">管理人ログイン</a>
-          <a class="dropdown-item" href="#">gitHub</a>
+          <a class="dropdown-item" href="/login">管理人ログイン</a>
+          <a class="dropdown-item" href="https://github.com/haruki6419">gitHub</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">その他</a>
         </div>
