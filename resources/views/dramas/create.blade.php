@@ -1,6 +1,6 @@
 @extends('layouts.layouts')
 
-@section('title', 'drama')
+@section('title', 'ドラマランキング')
 
 @section('content')
 
