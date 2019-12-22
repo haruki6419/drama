@@ -3,7 +3,9 @@
 @section('title', 'ドラマランキング')
 
 @section('content')
-<h1>感想</h1>
+<h1 class="mx-5">感想</h1>
+<a href="/posts/create">新規投稿</a>
+
 
 @foreach($posts as $post)
 
@@ -13,8 +15,8 @@
             <p class="card-text">{{ $post->content }}</p>
 
             <div class="d-flex" style="height: 36.4px;">
-                <a href="/posts/{{ $post->id }}" class="btn btn-outline-primary">感想</a>
-                <a href="/posts/{{ $post->id }}/edit" class="btn btn-outline-primary">編集</a>
+                <a href="/posts/{{ $post->id }}" class="btn btn-outline-primary mr-3">感想</a>
+                <a href="/posts/{{ $post->id }}/edit" class="btn btn-outline-primary mr-3">編集</a>
                 <form action="/posts/{{ $post->id }}" method="POST" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -25,5 +27,4 @@
     </div>
 @endforeach
 
-<a href="/posts/create">新規投稿</a>
 @endsection
