@@ -9,7 +9,7 @@
 <form method="POST" action="/posts">
     {{ csrf_field() }}
     <div class="form-group">
-        <label for="exampleInputEmail1">ドラマタイトル</label>
+        <label for="exampleInputEmail1">感想タイトル</label>
         <input type="text" class="form-control" aria-describedby="emailHelp" name="title">
     </div>
 
