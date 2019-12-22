@@ -12,7 +12,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ $drama->title }}</h5>
             <h6>{{ str_repeat("☆",$drama->score) }}</h6>
-            <img src="{{ str_replace('public', 'storage', asset($drama->img)) }}" alt="">
+            <img src="{{ str_replace('public', 'storage', asset($drama->img)) }}" alt="ドラマの画像">
             <p class="card-text">{{ $drama->content }}</p>
             <div class="d-flex" style="height: 36.4px;">
                 <button class="btn btn-outline-primary">感想</button>
