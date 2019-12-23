@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Storage;
 use App\Drama;
 use Illuminate\Http\Request;
 
@@ -40,7 +41,10 @@ class DramaController extends Controller
       $drama = new Drama();
       $drama->title = $request->input('title');
       $drama->content = $request->input('content');
-      $drama->img = $request->file('img')->store('public');
+      $image = $request->file('img');
+      $path = Storage::disk('s3')->putFile('images', $image, 'public');
+      $url = Storage::disk('s3')->url($path);
+      $drama->img = $url;
       $drama->save();
 
 
@@ -81,6 +85,11 @@ class DramaController extends Controller
       $drama->title = $request->input('title');
       $drama->content = $request->input('content');
       $drama->img = $request->file('img')->store('public');
+      $image = $request->file('img');
+      $path = Storage::disk('s3')->putFile('images', $image, 'public');
+      $url = Storage::disk('s3')->url($path);
+      $drama->img = $url;
+
       $drama->save();
 
       return redirect()->route('dramas.show', ['id' => $drama->id])->with('message', 'Drama was successfully updated.');
