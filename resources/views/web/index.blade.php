@@ -5,9 +5,8 @@
 @section('content')
 
 <div class="jumbotron jumbotron-fluid text-center mt-5">
-  <h1 class="display-4">ようこそ！ドラマランキングへ</h1>
-  <p class="lead">このサイトは今話題のドラマの感想を気軽に投稿できるサイトです。</p>
-  <p></p>
+  <h1 class="display-4 my-5">ようこそ！ドラマランキングへ</h1>
+  <p class="lead mb-5">このサイトは今話題のドラマの感想を気軽に投稿できるサイトです。</p>
   <div class="d-flex justify-content-center">
     <a class="btn btn-primary btn-lg" href="/posts" role="button">感想をチェック！</a>
   </div>
@@ -19,7 +18,7 @@
   <div class="col-4 mx-auto d-flex justify-content-center">
     <div class="card" style="width: 18rem;">
       <div class="card-body text-center">
-        <h5 class="card-title">～ {{ $popular_dramas[$i]["title"] }} ～</h5>
+        <h5 class="card-title mb-4">～ {{ $popular_dramas[$i]["title"] }} ～</h5>
         <p class="card-text">{{ Str::limit($popular_dramas[$i]["content"], 100) }}</p>
         <a href="/dramas/{{ $popular_dramas[$i]["id"] }}" class="btn btn-primary">詳細を見る</a>
       </div>

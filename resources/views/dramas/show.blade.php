@@ -15,9 +15,9 @@
             <img src="{{ str_replace('public', 'storage', asset($drama->img)) }}" alt="ドラマの画像">
             <p class="card-text">{{ $drama->content }}</p>
             <div class="d-flex" style="height: 36.4px;">
-                <button class="btn btn-outline-primary">感想</button>
+                <!-- <button class="btn btn-outline-primary">感想</button> -->
                 @auth
-                <a href="/dramas/{{ $drama->id }}/edit" class="btn btn-outline-primary">編集</a>
+                <a href="/dramas/{{ $drama->id }}/edit" class="btn btn-outline-primary mr-3">編集</a>
                 <form action="/dramas/{{ $drama->id }}" method="POST" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

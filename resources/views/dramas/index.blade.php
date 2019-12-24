@@ -13,10 +13,10 @@
     <div class="card my-5">
         <div class="card-body">
             <h5 class="card-title">{{ $drama->title }}</h5>
-            <p class="card-text">{{ $drama->content }}</p>
+            <p class="card-text my-4">{{ $drama->content }}</p>
 
             <div class="d-flex" style="height: 36.4px;">
-                <a href="/dramas/{{ $drama->id }}" class="btn btn-outline-primary mr-3">感想</a>
+                <a href="/dramas/{{ $drama->id }}" class="btn btn-outline-primary mr-3">詳細</a>
                 <a href="/dramas/{{ $drama->id }}/edit" class="btn btn-outline-primary mr-3">編集</a>
                 <form action="/dramas/{{ $drama->id }}" method="POST" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
                     <input type="hidden" name="_method" value="DELETE">

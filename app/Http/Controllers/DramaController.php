@@ -84,7 +84,7 @@ class DramaController extends Controller
     {
       $drama->title = $request->input('title');
       $drama->content = $request->input('content');
-      $drama->img = $request->file('img')->store('public');
+      // $drama->img = $request->file('img')->store('public');
       $image = $request->file('img');
       $path = Storage::disk('s3')->putFile('images', $image, 'public');
       $url = Storage::disk('s3')->url($path);
