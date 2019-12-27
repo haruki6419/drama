@@ -14,7 +14,7 @@
 
 <h2 class="text-center mt-5 mb-3">人気ドラマ一覧</h2>
 <div class="row">
-  @if($popular_dramas !== null)
+  @if(!empty($popular_dramas))
   @for($i = 0; $i < 3; $i++)
   <div class="col-4 mx-auto d-flex justify-content-center">
     <div class="card" style="width: 18rem;">
@@ -33,7 +33,7 @@
 
 <h2 class="text-center mt-5 mb-3">新着ドラマ一覧</h2>
 <div class="row">
-  @if($recently_dramas !== null)
+  @if(!empty($recently_dramas))
   @foreach($recently_dramas as $drama)
   <div class="col-4 mx-auto d-flex justify-content-center">
     <div class="card" style="width: 18rem;">
