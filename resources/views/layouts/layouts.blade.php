@@ -2,8 +2,11 @@
     <head>
         <title>@yield('title')</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
+        @if(ENV('APP_ENV') == 'production')
+          <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        @else
+          <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @endif
     </head>
     <body>
         @component('components.header')
@@ -14,7 +17,11 @@
 
         @component('components.footer')
         @endcomponent
-        <script src="{{ mix('js/app.js') }}"></script>
+        @if(ENV('APP_ENV') == 'production')
+          <script src="{{ mix('js/app.js') }}"></script>
+        @else
+          <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @endif
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v5.0"></script>
     </body>

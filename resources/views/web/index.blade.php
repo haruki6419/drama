@@ -16,15 +16,17 @@
 <div class="row">
   @if(!empty($popular_dramas))
   @for($i = 0; $i < 3; $i++)
-  <div class="col-4 mx-auto d-flex justify-content-center">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body text-center">
-        <h5 class="card-title mb-4">～ {{ $popular_dramas[$i]["title"] }} ～</h5>
-        <p class="card-text">{{ Str::limit($popular_dramas[$i]["content"], 100) }}</p>
-        <a href="/dramas/{{ $popular_dramas[$i]["id"] }}" class="btn btn-primary">詳細を見る</a>
+    @if(!empty($popular_dramas[$i]))
+      <div class="col-4 mx-auto d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-4">～ {{ $popular_dramas[$i]["title"] }} ～</h5>
+            <p class="card-text">{{ Str::limit($popular_dramas[$i]["content"], 100) }}</p>
+            <a href="/dramas/{{ $popular_dramas[$i]["id"] }}" class="btn btn-primary">詳細を見る</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    @endif
   @endfor
   @endif
 </div>

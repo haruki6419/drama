@@ -10,14 +10,21 @@
     <title>{{ config('app.name', 'ドラマランキング') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
-
+    @if(ENV('APP_ENV') == 'production')
+      <script src="{{ mix('js/app.js') }}" defer></script>
+    @else
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @endif
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    @if(ENV('APP_ENV') == 'production')
+      <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    @else
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @endif
 </head>
 <body>
     <div id="app">
