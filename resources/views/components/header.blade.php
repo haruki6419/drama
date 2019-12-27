@@ -15,17 +15,10 @@
       <li class="nav-item">
         <a class="nav-link" href="/posts">感想ページ</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          その他
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/login">管理人ログイン</a>
-          <a class="dropdown-item" href="https://github.com/haruki6419">gitHub</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">その他</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/haruki6419">gitHub</a>
       </li>
+    
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="キーワード" aria-label="Search">
