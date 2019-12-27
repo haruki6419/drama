@@ -86,13 +86,18 @@ class DramaController extends Controller
       $drama->content = $request->input('content');
       // $drama->img = $request->file('img')->store('public');
       $image = $request->file('img');
+      if($image !== null)
+      {
+      // 画像が添付されていたら
       $path = Storage::disk('s3')->putFile('images', $image, 'public');
       $url = Storage::disk('s3')->url($path);
       $drama->img = $url;
+      }
 
       $drama->save();
 
       return redirect()->route('dramas.show', ['id' => $drama->id])->with('message', 'Drama was successfully updated.');
+
     }
 
     /**
